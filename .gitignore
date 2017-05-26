@@ -1,3 +1,22 @@
+*.aux
+*.log
+*.out
+*.synctex.gz
+
+
+# ipython checkpoints
+.ipynb_checkpoints 
+*/.ipynb_checkpoints/*
+
+# DS_Store
+.DS_Store
+
+# .csv and .gz
+*.csv
+*.gz
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
