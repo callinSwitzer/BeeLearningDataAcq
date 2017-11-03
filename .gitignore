@@ -14,3 +14,7 @@
 # .csv and .gz
 *.csv
 *.gz
+
+# movies and images
+*.avi
+*.png
