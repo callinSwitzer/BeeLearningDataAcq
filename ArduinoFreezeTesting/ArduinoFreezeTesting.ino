@@ -17,14 +17,14 @@ Adafruit_DCMotor *myDCMotor = AFMS.getMotor(1);
 
 
 
-int ctr = 0; 
+
 int ledPin = 13; int val = 0;
 long interval = 50; 
 long previousTime = 0; 
 
 void setup(){ 
   //pinMode(ledPin,OUTPUT); 
-  Serial.begin(115200); 
+  Serial.begin(9600); 
 
   //Serial.println("Stepper test!");
 
@@ -77,14 +77,8 @@ void loop(){
         
         // release motor so it doesn't get too hot!
         myMotor->release();  
-        
-        // turn on DC motor
-        delay(50);
-        myDCMotor->run(RELEASE);
     
         }
-        
-Serial.println(ctr); 
-ctr = ctr + 1; 
+
  
 }
