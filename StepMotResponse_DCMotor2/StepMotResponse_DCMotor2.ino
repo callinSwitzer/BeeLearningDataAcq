@@ -65,6 +65,7 @@ void loop(){
         previousTime = currentTime;
           Serial.println(val);
            myDCMotor->run(FORWARD);
+  
            
       }
       

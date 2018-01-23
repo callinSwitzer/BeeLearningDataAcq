@@ -1,4 +1,5 @@
 
+
 #include <Wire.h>
 #include <Adafruit_MotorShield.h>
 #include "utility/Adafruit_MS_PWMServoDriver.h"
@@ -38,12 +39,10 @@ void setup(){
 }
 void loop(){ 
 
-//  Serial.println(ctr); 
-//  ctr = ctr + 1; 
-
  currentTime = millis(); 
 
   if(currentTime - previousTime > interval){
+  
       // turn off DC motor
        myDCMotor->run(RELEASE);
   }
@@ -53,17 +52,16 @@ void loop(){
       
   // if 'v' is pressed, only the vibration motor turns on
  if (val == 118){
-  
-    if(millis() - motTime > 100){
-    Serial.println(millis() - motTime); 
-    motTime = millis(); 
-    
-      Serial.println("HIHI"); 
+    // make sure the DC motor doesn't get activated 
+    // too often, otherwise it freezes the arduino
+    if(millis() - motTime > 300){
+      Serial.println(millis() - motTime); 
+      motTime = millis(); 
+      Serial.println("VIBE_ONLY"); 
       myDCMotor->run(FORWARD); 
-       previousTime = currentTime;
+      previousTime = currentTime;
     }
-   
-
+  
   }
 
   // if 's' is pressed, then only the stepper motor goes
@@ -73,6 +71,5 @@ void loop(){
     // release motor so it doesn't get too hot!
     myMotor->release();  
     }
-      
  
 }
