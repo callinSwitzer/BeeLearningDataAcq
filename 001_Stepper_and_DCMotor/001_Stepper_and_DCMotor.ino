@@ -33,7 +33,7 @@ void setup(){
     myMotor->setSpeed(1000);  // 60 rpm  
    
    // setup DC motor     
-   myDCMotor->setSpeed(100);
+   myDCMotor->setSpeed(120);
   
   Serial.write("Setup complete"); 
 }
