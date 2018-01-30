@@ -18,7 +18,7 @@ Adafruit_StepperMotor *myMotor = AFMS.getStepper(2000, 2);
 
 int ledPin = 13; 
 int val = 0;
-long interval = 50; 
+long interval = 80; 
 long previousTime = 0; 
 int ctr = 0; 
 unsigned long currentTime;
@@ -33,7 +33,7 @@ void setup(){
     myMotor->setSpeed(1000);  // 60 rpm  
    
    // setup DC motor     
-   myDCMotor->setSpeed(120);
+   myDCMotor->setSpeed(170);
   
   Serial.write("Setup complete"); 
 }
