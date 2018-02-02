@@ -11,6 +11,9 @@ import re
 import skimage.io as io
 
 
+import beeDataAcq.cameraSetup as cs
+
+
 # avi recording function
 bus = fc2.BusManager()
 numCams = bus.getNumOfCameras()
@@ -22,9 +25,9 @@ d = fc2.Camera()
 d.connect(bus.getCameraFromIndex(1))
 
 # start capture
-enableEmbeddedTimeStamp(c, True)
+cs.enableEmbeddedTimeStamp(c, True)
 c.startCapture()
-enableEmbeddedTimeStamp(c, True)
+cs.enableEmbeddedTimeStamp(c, True)
 d.startCapture()
 
 
@@ -59,7 +62,7 @@ def saveAviHelper2(cam, cam2, fileFormat, fileName, fileName2, frameRate, maxImg
                 return
             
             # show still image
-            img = np.concatenate((img2array(image), img2array(image2)), axis = 1)
+            img = np.concatenate((cs.img2array(image), cs.img2array(image2)), axis = 1)
 
             # Display the resulting frame
             cv2.imshow('image', img)
@@ -91,7 +94,7 @@ def main():
     movieID = str(datetime.datetime.now().strftime("%Y_%m_%d__%H_%M_%S_%f")[:-3])
     fileName = os.path.join(directory,   movieID + "_cam1" +".avi")
     fileName2 = os.path.join(directory,  movieID + "_cam2" +".avi")
-    saveAviHelper2(c,d, "AVI", fileName.encode("utf-8"), fileName2.encode("utf-8"), 10, maxImgs = 100)
+    saveAviHelper2(c,d, "AVI", fileName.encode("utf-8"), fileName2.encode("utf-8"), 10, maxImgs = 10)
 
 if __name__ == "__main__":
     main()

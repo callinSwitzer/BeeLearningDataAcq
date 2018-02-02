@@ -1,9 +1,15 @@
 ## main
 
-import cameraSetup
+from sys import argv
 
-cameraSetup.main()
 
-import saveVid
+# if you type python beeDataAcq setup, it will run the setup module, otherwise
+# it will go straight to recording
 
-saveVid.main()
+if argv[-1] == "setup":
+    import cameraSetup
+    cameraSetup.main()
+
+else:
+    import saveVid
+    saveVid.main()
