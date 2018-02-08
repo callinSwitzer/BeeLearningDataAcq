@@ -94,7 +94,7 @@ def main():
     movieID = str(datetime.datetime.now().strftime("%Y_%m_%d__%H_%M_%S_%f")[:-3])
     fileName = os.path.join(directory,   movieID + "_cam1" +".avi")
     fileName2 = os.path.join(directory,  movieID + "_cam2" +".avi")
-    saveAviHelper2(c,d, "AVI", fileName.encode("utf-8"), fileName2.encode("utf-8"), 10, maxImgs = 10)
+    saveAviHelper2(c,d, "AVI", fileName.encode("utf-8"), fileName2.encode("utf-8"), 10, maxImgs = 10000)
 
 if __name__ == "__main__":
     main()
