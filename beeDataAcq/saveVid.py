@@ -55,8 +55,10 @@ def saveAviHelper2(cam, cam2, fileFormat, fileName, fileName2, frameRate, maxImg
                 avi2.AVIOpen(fileName2, frameRate)
             elif fileFormat == "MJPG":
                 avi.MJPGOpen(fileName, frameRate, 75)
+                avi2.MJPGOpen(fileName2, frameRate, 75)
             elif fileFormat == "H264":
                 avi.H264Open(fileName, frameRate, image.getCols(), image.getRows(), 1000000)
+                avi2.H264Open(fileName2, frameRate, image2.getCols(), image2.getRows(), 1000000)
             else:
                 print("Specified format is not available.")
                 return
@@ -92,8 +94,8 @@ def main():
     
     directory = os.path.join("C:\\Users\\Combes4\Desktop\\temp3")
     movieID = str(datetime.datetime.now().strftime("%Y_%m_%d__%H_%M_%S_%f")[:-3])
-    fileName = os.path.join(directory,   movieID + "_cam1" +".avi")
-    fileName2 = os.path.join(directory,  movieID + "_cam2" +".avi")
+    fileName = os.path.join(directory,   movieID + "_cam1" + ".avi")
+    fileName2 = os.path.join(directory,  movieID + "_cam2" + ".avi")
     saveAviHelper2(c,d, "AVI", fileName.encode("utf-8"), fileName2.encode("utf-8"), 10, maxImgs = 10000)
 
 if __name__ == "__main__":
