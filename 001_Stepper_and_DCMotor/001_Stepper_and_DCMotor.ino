@@ -71,5 +71,19 @@ void loop(){
     // release motor so it doesn't get too hot!
     myMotor->release();  
     }
+
+  // if 'h' is pressed, then stepper delivers half reward
+  else if (val == 104) {Serial.println(val);
+    myMotor->step(20, FORWARD, SINGLE);    
+    // release motor so it doesn't get too hot!
+    myMotor->release();  
+    }
+
+  // if 'd' is pressed, then stepper delivers double reward
+  else if (val == 100) {Serial.println(val);
+    myMotor->step(80, FORWARD, SINGLE);    
+    // release motor so it doesn't get too hot!
+    myMotor->release();  
+    }
  
 }
