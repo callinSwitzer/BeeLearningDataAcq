@@ -18,3 +18,5 @@
 # movies and images
 *.avi
 *.png
+
+*/__pycache__/*
