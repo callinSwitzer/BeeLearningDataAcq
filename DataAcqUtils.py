@@ -329,3 +329,12 @@ def run_trial(reward_1, reward_2, acc1, acc2):
             break
             
     return(procR.f.name)
+
+
+def randomAssignTreatment():
+    choice = np.random.choice([0,1])
+    print(["reward_1:True, reward_2:False", "reward_1:False, reward_2:True"][choice])
+    if choice:
+        return(False, True)
+    else: 
+        return(True, False)
