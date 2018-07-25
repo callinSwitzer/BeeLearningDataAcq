@@ -73,7 +73,8 @@ def livePreview2(c, d):
         print(time.time() - stt)
 
         # break when "q" is pressed on keyboard
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        k = cv2.waitKey(1) & 0xFF
+        if (k == ord('q')) or (k == 27):
             for jj in range(10):
                 cv2.destroyAllWindows()
             break

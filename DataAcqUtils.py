@@ -294,6 +294,9 @@ def run_trial(reward_1, reward_2, acc1, acc2):
 
     # instantiate
     procR = processAndReward(reward1 = reward_1, reward2 = reward_2, saveDirectory = "C:\\Users\\Combes4\\Desktop\\temp3\\")
+    
+    # print filename
+    print(procR.f.name)
 
     # start timer
 

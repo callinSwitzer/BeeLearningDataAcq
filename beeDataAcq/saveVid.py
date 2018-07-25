@@ -70,7 +70,8 @@ def saveAviHelper2(cam, cam2, fileFormat, fileName, fileName2, frameRate, maxImg
             cv2.imshow('image', img)
 
         # break when "q" is pressed on keyboard
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        k = cv2.waitKey(1) & 0xFF
+        if (k  == ord('q')) or (k == 27):
             for jj in range(10):
                 cv2.destroyAllWindows()
             break
